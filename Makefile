@@ -48,7 +48,7 @@ clean:
 	find . -name "*.pyc" -delete
 
 update-project-template:
-	npx update-template https://github.com/googlefonts/googlefonts-project-template/
+	npx update-template https://github.com/mooniak/mooniak-font-project-template/
 
 update: venv
 	venv/bin/pip install --upgrade pip-tools
