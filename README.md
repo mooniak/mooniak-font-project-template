@@ -8,7 +8,7 @@
    \
    Unlike many open source distributors, Google Fonts is **curated**. Fonts shipped to the platform have to match the [Google Fonts Specifications](https://github.com/googlefonts/gf-docs/tree/main/Spec). Please read them carefully.\
    \
-   _(The sample font provided in this template is [Radio Canada](https://github.com/googlefonts/radiocanadadisplay/) by Charles Daoud, Etienne Aubert Bonn, Alexandre Saumier Demers and contributors.)_
+   _(The template ships a tiny generic placeholder — "My Font", a 2-master Weight variable font with a handful of blank-slate glyphs (`.notdef`, space, H, I, l, O) as `sources/MyFont.designspace` + UFOs. It exists only so the build pipeline works out of the box; replace it with your own sources.)_
 
 3. Then reference the sources in the file `sources/config.yaml`, as well as making any other changes you would like to make based on the instructions in the [Google Fonts Builder documentation](https://github.com/googlefonts/gftools/blob/main/Lib/gftools/builder/__init__.py).
 
