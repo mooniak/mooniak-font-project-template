@@ -77,6 +77,7 @@ If you want to build fonts manually on your own computer:
 - `make build` will produce font files.
 - `make test` will run [Fontspector](https://fonttools.github.io/fontspector/)'s quality assurance tests.
 - `make proof` will generate HTML proof files.
+- `make features` regenerates the Sinhala/Tamil OpenType features with [lankafea](https://github.com/mooniak/sinhala-font-tools/tree/gh-pages/tools/feature-generator), for fonts that keep their settings in `sources/lankafea.yaml`. Commit the result; the build doesn't need lankafea.
 
 The proof files and QA tests are also available automatically via GitHub Actions — look at https://mooniak.github.io/mooniak-font-project-template.git.
 
