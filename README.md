@@ -78,6 +78,7 @@ If you want to build fonts manually on your own computer:
 - `make test` will run [Fontspector](https://fonttools.github.io/fontspector/)'s quality assurance tests.
 - `make proof` will generate HTML proof files.
 - `make features` regenerates the Sinhala/Tamil OpenType features with [lankafea](https://github.com/mooniak/sinhala-font-tools/tree/gh-pages/tools/feature-generator), for fonts that keep their settings in `sources/lankafea.yaml`. Commit the result; the build doesn't need lankafea.
+- `make glyph-order` checks that the sources keep the Mooniak glyph order, the glyph order of [Abhaya Libre](https://github.com/mooniak/abhaya-libre-font) (`scripts/glyph-order.txt`); `make glyph-order WRITE=1` sorts them. A glyph Abhaya Libre doesn't have (a font's own alternate or symbol) goes after its base glyph. Close the font in Glyphs.app first, and commit the result. New glyphs belong in the same place: when you add one, run it again.
 
 The proof files and QA tests are also available automatically via GitHub Actions — look at https://mooniak.github.io/mooniak-font-project-template.git.
 
