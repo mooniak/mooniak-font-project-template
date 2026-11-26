@@ -131,12 +131,17 @@ def _parse_fontspector_md(md_path: Path) -> dict | None:
     return None
 
 
-def _qa_status(repo: Path, profile: str = "googlefonts") -> dict:
-    """Read the fontspector report under out/ and reduce it to a verdict."""
-    hits = sorted((repo / "out").rglob("fontspector-report.md")) if (repo / "out").is_dir() else []
-    if not hits:
+def _qa_status(repo: Path) -> dict:
+    """Read the blocking fontspector report (out/fontspector/, the Mooniak profile)
+    and reduce it to a verdict. The googlefonts report some free fonts also write
+    (out/fontspector-googlefonts/) never decides the verdict. The profile comes from
+    the fontspector-profile.txt sidecar `make test` writes beside the report."""
+    report = repo / "out" / "fontspector" / "fontspector-report.md"
+    if not report.is_file():
         return {"available": False}
-    counts = _parse_fontspector_md(hits[0])
+    side = report.parent / "fontspector-profile.txt"
+    profile = (side.read_text(encoding="utf-8").strip() if side.is_file() else "") or None
+    counts = _parse_fontspector_md(report)
     if not counts:
         return {"available": False}
     total = sum(counts.get(s, 0) for s in SEVERITIES)
